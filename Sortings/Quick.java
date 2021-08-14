@@ -54,18 +54,18 @@ public class Quick{
    * @param integer left element
             integer right element. */
   public int findMedian(int left, int right){
-    int m = (left+right)/2;  // Midian
+    int m = (left+right)/2;  // Median
     
-    if(array[left]>array[m]){  // If left value is larger than midian value, then swap.
+    if(array[left]>array[m]){  // If left value is larger than median value, then swap.
       swap(left,m);          
     }
     if(array[left]>array[right]){ // If left value is larger than right value, then swap.
       swap(left,right);
     }
-    if(array[m]>array[right]){ // If midian value is larger than right value, then swap.
+    if(array[m]>array[right]){ // If median value is larger than right value, then swap.
       swap(m,right);
     }
-    swap(m,right-1);  // Locate midian value to the right position for implementing the partition method.
+    swap(m,right-1);  // Locate median value to the right position for implementing the partition method.
     return array[right-1];  // Return the median value.
          
   } // findMedian
@@ -90,7 +90,7 @@ public class Quick{
       }
     }
       swap(leftLocation,right-1);  // Locate the median value into the middle location.
-      return leftLocation; // Return the midian location
+      return leftLocation; // Return the median location
     
     } // partition
   
