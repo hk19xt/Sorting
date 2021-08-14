@@ -1,0 +1,80 @@
+package Sortings;
+
+import java.util.*;
+
+public class Merge{
+
+  private void merge(int array[], int left, int middle, int right){
+    int sub1 = middle - left + 1;
+    int sub2 = right - middle;
+    
+    int L[] = new int[sub1];
+    int R[] = new int[sub2];
+    
+    for(int i=0;i<sub1;++i){
+      L[i]=array[left+i];
+    }
+    for(int j=0;j<sub2;++j){
+      R[j]=array[middle+1+j];
+    }
+    
+    int i=0;
+    int j=0;
+    
+    int t=left;
+    while(i<sub1 && j<sub2){
+      if(L[i] <= R[j]){
+        array[t] = L[i];
+        i++;
+      }else{
+        array[t] = R[j];
+        j++;
+      }
+    t++;  
+    }
+    
+    while(i<sub1){
+      array[t] = L[i];
+      i++;
+      t++;    
+    }
+    
+    while(j<sub2){
+      array[t] = R[j];
+      j++;
+      t++;
+    }
+  }
+  
+  public void sort(int array[], int left, int right){
+    if(left<right){
+      int middle = (left+right)/2;
+      sort(array,left,middle);
+      sort(array,middle+1,right);
+      merge(array,left,middle,right);
+      
+    }
+  
+  }
+  
+ 
+      public static void print(int array[]){
+  
+    int t = array.length;
+    System.out.print("{");
+    for(int i=0;i<t;++i){
+      if(i>0)
+      {
+        System.out.print(", ");
+      }
+      System.out.print(array[i]);
+    }
+    System.out.print("}");
+      System.out.println();
+    }
+    
+  }
+    
+ 
+  
+
